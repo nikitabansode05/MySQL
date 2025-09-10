@@ -1,10 +1,10 @@
 -- 6. Creating a Stored Procedure for Low Stock Alerts
 
 DELIMITER //
-CREATE PROCEDURE lowStockAlert()
+CREATE PROCEDURE lowStockAlert(IN p_threshhold int )
 	BEGIN
-		SELECT * FROM products WHERE stock<50;
+		SELECT * FROM products WHERE stock<p_threshhold;
     END //
 DELIMITER ;
 
-CALL lowStockAlert();
+CALL lowStockAlert(50);
