@@ -33,15 +33,20 @@ select qb.title,qb.a,qb.b,qb.c,qb.d,qb.answerkey from questionbank qb
 select qb.title,qb.a,qb.b,qb.c,qb.d,qb.answerkey from questionbank qb
  join subject_concepts sc on qb.subject_concept_id=sc.subject_concept_id
  join subjects s on sc.subject_id=s.id
+ join concepts c on sc.concept_id=c.id
  where s.title="DotNet" and
- created_by="Sanika Bhor";
+ qb.created_by="Sanika Bhor" and
+ c.id=1;
  
 -- list all question createdby  , subject, cocept and level
 select qb.title,qb.a,qb.b,qb.c,qb.d,qb.answerkey from questionbank qb
  join subject_concepts sc on qb.subject_concept_id=sc.subject_concept_id
  join subjects s on sc.subject_id=s.id
+ join concepts c on sc.concept_id=c.id
  where s.title="DotNet" and
- created_by="Sanika Bhor";
+ qb.created_by="Sanika Bhor" and
+ c.id=1 and
+ qb.difficulty_level="Beginner";
  
  -- list all questions for a concept 
  select qb.title,qb.a,qb.b,qb.c,qb.d,qb.answerkey from questionbank qb
