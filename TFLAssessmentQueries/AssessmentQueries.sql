@@ -26,3 +26,25 @@ JOIN assessments a ON t.id=a.test_id
 LEFT JOIN employees candidate ON a.candidate_id = candidate.id 
 LEFT JOIN employees sme ON t.smeid = sme.id 
 WHERE a.id = 4;
+
+-- concept wise correct answer--
+SELECT 
+            c.id AS concept_id,
+            c.title AS concept_name,
+            COUNT(qb.id) AS total_questions,
+            SUM(CASE 
+                    WHEN ca.answerkey = qb.answerkey THEN 1 
+                    ELSE 0 
+                END) AS correct_answers
+        FROM candidateanswers ca
+        JOIN questionbank qb ON ca.testquestionid = qb.id
+        JOIN concepts c ON qb.subject_concept_id = c.id
+        WHERE ca.candidateid = 4
+        GROUP BY c.id, c.title;  
+        
+-- get test details
+SELECT q.id AS QuestionId, q.subject_concept_id AS SubjectConceptId, q.title, q.a, q.b, q.c, q.d, q.answerkey
+                      FROM questionbank q
+                      INNER JOIN testquestions tq ON q.id = tq.questionbankid
+                      WHERE tq.testid = 4;
+                      

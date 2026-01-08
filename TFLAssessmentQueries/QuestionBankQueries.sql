@@ -4,6 +4,17 @@ select qb.title, qb.a,qb.b,qb.c,qb.d,qb.answerkey from questionbank qb
  join subjects s on sc.subject_id=s.id
  where s.id=1;
  
+SELECT 
+id AS QuestionBankId,
+title,
+a,
+b,
+c,
+d
+FROM questionbank qb
+join subject_concepts sc on sc.subject_concept_id=qb.subject_concept_id
+WHERE sc.subject_id = 1;
+
 -- list all questions for a stubject and concept
 select q.title from questionbank q inner join subjects s on q.subject_concept_id=s.id where s.id=1;
 
@@ -65,3 +76,8 @@ select qb.title,qb.a,qb.b,qb.c,qb.d,qb.answerkey from questionbank qb
 join subject_concepts sc on qb.subject_concept_id=sc.subject_concept_id
 join concepts c on sc.concept_id=c.id
 where qb.created_by="Sanika Bhor" and c.id=3 and qb.difficulty_level="Expert";
+
+-- get concept by subject
+select * from concepts c
+join subject_concepts sc on c.id=sc.concept_id
+where sc.subject_id=1;
