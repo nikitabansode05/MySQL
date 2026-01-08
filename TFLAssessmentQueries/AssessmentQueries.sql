@@ -37,8 +37,10 @@ SELECT
                     ELSE 0 
                 END) AS correct_answers
         FROM candidateanswers ca
-        JOIN questionbank qb ON ca.testquestionid = qb.id
-        JOIN concepts c ON qb.subject_concept_id = c.id
+        JOIN testquestions tq ON ca.testquestionid = tq.id
+        join questionbank qb on tq.questionbankid=qb.id
+        join subject_concepts sc on qb.subject_concept_id=sc.subject_concept_id
+        JOIN concepts c ON sc.concept_id = c.id
         WHERE ca.candidateid = 4
         GROUP BY c.id, c.title;  
         
@@ -48,3 +50,4 @@ SELECT q.id AS QuestionId, q.subject_concept_id AS SubjectConceptId, q.title, q.
                       INNER JOIN testquestions tq ON q.id = tq.questionbankid
                       WHERE tq.testid = 4;
                       
+

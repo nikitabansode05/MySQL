@@ -81,3 +81,5 @@ where qb.created_by="Sanika Bhor" and c.id=3 and qb.difficulty_level="Expert";
 select * from concepts c
 join subject_concepts sc on c.id=sc.concept_id
 where sc.subject_id=1;
+
+-- get concept wise correct answer
