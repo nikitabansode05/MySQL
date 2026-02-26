@@ -1,0 +1,20 @@
+-- Get all active questions
+-- Get coding questions only
+-- Count questions per difficulty
+-- Questions that have problem statements
+-- Questions with code snippets
+-- Questions tagged as mini projects
+-- Get subjects of a question
+-- Get concepts of a question
+-- Get all questions of a subject
+-- Get coding questions with starter code
+-- Mock interview questions
+-- System design questions
+-- Find questions without concepts ❌
+-- Questions without starter code
+-- Concepts never used
+-- Full question detail (LIKE API RESPONSE)
+-- Beginner roadmap
+-- Most common subjects
+-- Pagination test
+-- Random question (quiz mode)
