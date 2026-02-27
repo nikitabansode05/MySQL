@@ -53,11 +53,47 @@ SELECT qb.question_id,qb.title,qb.description,qb.question_type,qb.difficulty_lev
 WHERE question_type='MOCK_QUESTION';
 
 -- System design questions
+
 -- Find questions without concepts ❌
+-- SELECT qb.question_id,qb.title,qb.description,qb.question_type,qb.difficulty_level FROM question_bank qb
+-- JOIN question_subject_concept_map qsc ON qsc.question_id=qb.question_id
+-- JOIN subject_concepts sc ON sc.id=qsc.subject_concept_id
+-- WHERE qb.question_id!=qsc.question_id;
+
+SELECT qb.question_id,
+       qb.title,
+       qb.description,
+       qb.question_type,
+       qb.difficulty_level
+FROM question_bank qb
+LEFT JOIN question_subject_concept_map qsc 
+       ON qsc.question_id = qb.question_id
+LEFT JOIN subject_concepts sc 
+       ON sc.id = qsc.subject_concept_id
+WHERE qsc.question_id IS NULL;
+
 -- Questions without starter code
+SELECT qb.question_id,qb.title,qb.description,qb.question_type,qb.difficulty_level
+ FROM question_bank qb
+ JOIN code_snippets cs 
+ ON qb.question_id=cs.question_id
+ WHERE cs.question_id IS NULL;
+ 
 -- Concepts never used
+SELECT c.name
+FROM concepts c
+LEFT JOIN subject_concepts sc 
+       ON sc.concept_id = c.concept_id
+LEFT JOIN question_subject_concept_map qsc
+       ON qsc.id = qsc.subject_concept_id
+WHERE c.name IS NULL;
+
 -- Full question detail (LIKE API RESPONSE)
+
 -- Beginner roadmap
+
 -- Most common subjects
+
 -- Pagination test
+
 -- Random question (quiz mode)
