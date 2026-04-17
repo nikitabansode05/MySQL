@@ -1,0 +1,19 @@
+INSERT INTO projects (
+    project_id, 
+    mentor_id, 
+    project_name, 
+    description, 
+    repository_url, 
+    status, 
+    created_at
+)
+VALUES 
+    (1, 1, 'TFLAssessment', 'Assessment platform for conducting online tests, evaluating performance, and generating results', 'https://github.com/RaviTambade/TFLAssessment.git', 'PENDING', '2026-04-14 17:13:07'),
+    (2, 4, 'E-Krushi-Project', 'Digital agriculture platform providing farmers with crop guidance, market prices, and smart farming solutions', 'https://github.com/RaviTambade/E-Krushi-Project.git', 'IN_PROGRESS', '2026-04-14 17:13:07'),
+    (3, 4, 'TFLGreenhouseAutomation', 'Automation system for monitoring and controlling greenhouse environment like temperature, humidity, and irrigation', 'https://github.com/RaviTambade/TFLGreenhouseAutomation.git', 'IN_PROGRESS', '2026-04-14 17:13:07'),
+    (4, 1, 'EAgroServices', 'Online platform offering agricultural services like equipment rental, soil testing, and advisory support', 'https://github.com/RaviTambade/EAgroServices.git', 'PENDING', '2026-04-14 17:13:07'),
+    (5, 4, 'InventoryManagement', 'System to manage stock, track inventory levels, and generate reports for business operations', 'https://github.com/RaviTambade/InventoryManagement.git', 'COMPLETED', '2026-04-14 17:13:07');
+
+
+
+
